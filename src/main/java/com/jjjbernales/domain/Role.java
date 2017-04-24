@@ -1,13 +1,17 @@
 package com.jjjbernales.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name="role")
-public class Role {
+public class Role implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy=IDENTITY)
     @Column(name="id", unique=true, nullable=false)

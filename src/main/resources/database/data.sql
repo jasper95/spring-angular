@@ -1,6 +1,6 @@
 INSERT INTO role (id, role_name, description) VALUES
-(1, 'ADMIN  ', 'Admin account'),
-(2, 'USER', 'User account');
+(1, 'ROLE_ADMIN  ', 'Admin account'),
+(2, 'ROLE_USER', 'User account');
 
 INSERT INTO user (id, full_name, username, password, status) VALUES
 (1, 'Jasper Bernales', 'developer', '$2a$10$LvDVKusRSmMloHpVEC76yezPitaVReTXBRexN8KJvNUVwurvLhnVy', 'ACTIVE'),

@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      th:include="base :: page">
+    <head>
+        <title th:fragment="title">Spring Security Example</title>
+    </head>
+    <body>
+    <th:block th:fragment="content">
+        <h1>Welcome!</h1>
 
-</body>
+    </th:block>
+    <th:block th:fragment="js-block">
+        <script type="text/javascript" th:src="@{/app/vendor/js/angular/angular.min.js}"></script>
+        <script type="text/javascript" th:src="@{/app/vendor/js/angular/angular-ui-router.min.js}"></script>
+        <script type="text/javascript" th:src="@{/app/vendor/js/angular/ngStorage.min.js}"></script>
+        <script type="text/javascript" th:src="@{/app/vendor/js/angular/angular-resource.min.js}"></script>
+    </th:block>
+    </body>
 </html>

@@ -12,6 +12,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name="user")
 public class User implements Serializable{
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy=IDENTITY)
     @Column(name="id", unique=true, nullable=false)
