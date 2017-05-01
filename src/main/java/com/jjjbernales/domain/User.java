@@ -1,9 +1,15 @@
 package com.jjjbernales.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jjjbernales.domain.enums.UserStatus;
+import org.hibernate.annotations.*;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -29,10 +35,13 @@ public class User implements Serializable{
     private UserStatus status;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name="usersandroles",
-            joinColumns=@JoinColumn(name="user_id"),
-            inverseJoinColumns=@JoinColumn(name="role_id"))
+            joinColumns= @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="role_id"))
     private Set<Role> roles;
 
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    private Set<PersistentToken> persistentTokens = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -80,6 +89,14 @@ public class User implements Serializable{
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Set<PersistentToken> getPersistentTokens() {
+        return persistentTokens;
+    }
+
+    public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
+        this.persistentTokens = persistentTokens;
     }
 
     @Override

@@ -16,7 +16,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.RememberMeServices;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.web.filter.CorsFilter;
 
 import javax.annotation.PostConstruct;
 
@@ -31,13 +33,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final RememberMeServices rememberMeServices;
 
-
+    private final CorsFilter corsFilter;
 
     public SecurityConfig(AuthenticationManagerBuilder authenticationManagerBuilder, UserDetailsService userDetailsService,
-                          RememberMeServices rememberMeServices){
+                          RememberMeServices rememberMeServices, CorsFilter corsFilter){
         this.authenticationManagerBuilder = authenticationManagerBuilder;
         this.userDetailsService = userDetailsService;
         this.rememberMeServices = rememberMeServices;
+        this.corsFilter = corsFilter;
     }
 
     @PostConstruct
@@ -82,6 +85,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf()
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         .and()
+            .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
             .exceptionHandling()
             .authenticationEntryPoint(http401UnauthorizedEntryPoint())
         .and()
