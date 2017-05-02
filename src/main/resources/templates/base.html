@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      th:fragment="page">
+<html >
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title th:include=":: title"></title>
+        <title>{% block title %}Page Title{% endblock %}</title>
     </head>
     <body>
-        <th:block th:replace=":: content">
+        {% block content %}
+        {% endblock %}
 
-        </th:block>
-        <th:block th:replace=":: js-block">
-
-        </th:block>
+        {% block javascript_files %}
+        {% endblock %}
     </body>
 </html>

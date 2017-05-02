@@ -1,0 +1,31 @@
+{
+  "name": "spring-angular",
+  "homepage": "https://github.com/jasper95/spring-angular",
+  "authors": [
+    "Jasper Bernales <bernalesjasper@gmail.com>"
+  ],
+  "description": "Spring Angular Starter Kit",
+  "main": "",
+  "keywords": [
+    "spring-angular",
+    "spring-security-angular",
+    "angular-require"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "requirejs": "^2.3.3",
+    "domReady": "^2.0.1",
+    "angular-ui-router": "^0.4.2",
+    "angular-resource": "^1.6.4",
+    "ngstorage": "^0.3.11"
+  }
+}
