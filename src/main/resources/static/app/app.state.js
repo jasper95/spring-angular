@@ -26,12 +26,14 @@ define([], function(){
                 }
             },
             {
-                name: 'person',
-                url: '/people/{username}',
+                name: 'people.person',
+                url: '/{username}',
                 component: 'person',
                 resolve: {
-                    person: ['User', '$transition$', function(User, $transition$){
-                        return User.get( {username: $transition$.params().username})
+                    person: ['people', '$stateParams', function(people, $stateParams){
+                        return people.find(function(person){
+                            return person.username === $stateParams.username;
+                        })
                     }]
 
                 }
