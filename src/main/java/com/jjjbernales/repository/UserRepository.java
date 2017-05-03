@@ -1,6 +1,7 @@
 package com.jjjbernales.repository;
 
 import com.jjjbernales.domain.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 

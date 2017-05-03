@@ -24,8 +24,8 @@
     "angular": "^1.6.4",
     "requirejs": "^2.3.3",
     "domReady": "^2.0.1",
-    "angular-ui-router": "^0.4.2",
     "angular-resource": "^1.6.4",
-    "ngstorage": "^0.3.11"
+    "ngstorage": "^0.3.11",
+    "angular-ui-router": "1.0.0-rc.1"
   }
 }

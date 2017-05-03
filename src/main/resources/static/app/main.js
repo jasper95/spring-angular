@@ -1,10 +1,10 @@
 require.config({
     paths : {
         "domReady" : "../vendor/domReady/domReady",
-        "angular" : "../vendor/angular/angular.min",
-        "ui-router" : "../vendor/angular-ui-router/release/angular-ui-router.min",
-        "ng-resource" : "../vendor/angular-resource/angular-resource.min",
-        "ng-storage" : "../vendor/ngStorage/ngStorage.min"
+        "angular" : "../vendor/angular/angular",
+        "ui-router" : "../vendor/angular-ui-router/release/angular-ui-router",
+        "ng-resource" : "../vendor/angular-resource/angular-resource",
+        "ng-storage" : "../vendor/ngStorage/ngStorage"
     },
 
     shim : {

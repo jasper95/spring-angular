@@ -39,7 +39,6 @@ public class User implements Serializable{
             inverseJoinColumns = @JoinColumn(name="role_id"))
     private Set<Role> roles;
 
-    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     private Set<PersistentToken> persistentTokens = new HashSet<>();
 
@@ -83,6 +82,7 @@ public class User implements Serializable{
         this.password = password;
     }
 
+    @JsonIgnore
     public Set<Role> getRoles() {
         return roles;
     }
@@ -91,6 +91,7 @@ public class User implements Serializable{
         this.roles = roles;
     }
 
+    @JsonIgnore
     public Set<PersistentToken> getPersistentTokens() {
         return persistentTokens;
     }

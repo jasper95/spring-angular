@@ -3,9 +3,12 @@
 {% block title %}Spring Security Example{% endblock %}
 
 {% block content %}
-    <h1>Welcome!</h1>
+    <a ui-sref="hello" ui-sref-active="active">Hello</a>
+    <a ui-sref="about" ui-sref-active="active">About</a>
+    <a ui-sref="people" ui-sref-active="active">People</a>
+    <ui-view></ui-view>
 {% endblock %}
 
 {% block javascript_files %}
-    <script data-main="{{ href('/app/main') }}" src="{{ href('/vendor/requirejs/require.js') }}"></script>
+    <script data-main="app/main" src="vendor/requirejs/require.js"></script>
 {% endblock %}
